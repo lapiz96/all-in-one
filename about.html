@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AI Tools Platform</title>
+    <meta name="description"
+        content="Learn about AI Tools Platform - Our mission, vision, and commitment to providing free, privacy-first AI tools for everyone.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00ff88">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+                        <path d="M16 8L22 12V20L16 24L10 20V12L16 8Z" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#00ff88" />
+                                <stop offset="100%" stop-color="#00cc66" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">AI Tools</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#tools" class="nav-link">Tools</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="hero" style="padding: 120px 0 80px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    About <span class="gradient-text">AI Tools Platform</span>
+                </h1>
+                <p class="hero-description" style="max-width: 800px; margin: 0 auto;">
+                    We're on a mission to democratize AI-powered tools and make professional-grade technology accessible
+                    to everyone, everywhere.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Story</h2>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p
+                    style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    AI Tools Platform was born from a simple observation: powerful AI tools exist, but they're often
+                    locked behind expensive subscriptions, require file uploads to unknown servers, or come with privacy
+                    concerns that make users uncomfortable.
+                </p>
+                <p
+                    style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    We believed there had to be a better way. What if AI processing could happen entirely in your
+                    browser? What if your files never had to leave your device? What if professional-grade tools were
+                    free for everyone?
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem; line-height: 1.8;">
+                    That's why we built AI Tools Platform—a suite of cutting-edge AI tools that run completely
+                    client-side, respect your privacy, and are accessible to anyone with a web browser.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="features-section" style="background: rgba(0, 255, 136, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="section-description">What drives us every day</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3 class="feature-title">Democratize AI</h3>
+                    <p class="feature-description">Make advanced AI tools accessible to everyone, regardless of budget
+                        or technical expertise.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Privacy First</h3>
+                    <p class="feature-description">Ensure complete data privacy by processing everything locally in the
+                        user's browser.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Speed & Quality</h3>
+                    <p class="feature-description">Deliver professional-grade results with optimized performance and
+                        instant processing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Universal Access</h3>
+                    <p class="feature-description">Create tools that work offline and are available to anyone, anywhere
+                        in the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Technology Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Technology</h2>
+                <p class="section-description">Built on cutting-edge AI and web technologies</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="feature-card" style="margin-bottom: 2rem;">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 1rem;">Real-ESRGAN for Image
+                        Enhancement</h3>
+                    <p class="feature-description">We use state-of-the-art Real-ESRGAN models converted to TensorFlow
+                        Lite for browser-based inference, delivering professional image upscaling and enhancement
+                        without server uploads.</p>
+                </div>
+                <div class="feature-card" style="margin-bottom: 2rem;">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 1rem;">RMBG 2.0 for Background
+                        Removal</h3>
+                    <p class="feature-description">Advanced AI segmentation models provide pixel-perfect background
+                        removal with accurate edge detection, even for complex subjects like hair and fur.</p>
+                </div>
+                <div class="feature-card" style="margin-bottom: 2rem;">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 1rem;">WebGPU & WASM Acceleration
+                    </h3>
+                    <p class="feature-description">We leverage WebGPU for GPU-accelerated inference and WebAssembly for
+                        high-performance computation, ensuring fast processing times on modern browsers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 1rem;">Client-Side Processing</h3>
+                    <p class="feature-description">All AI models run entirely in your browser using TensorFlow.js. Your
+                        files are processed locally and never uploaded to our servers or any third party.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="features-section" style="background: rgba(0, 255, 136, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-description">Principles that guide everything we do</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="display: grid; gap: 2rem;">
+                    <div class="feature-card">
+                        <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.5rem;">🎯 User-Centric Design
+                        </h3>
+                        <p class="feature-description">We design with the user in mind, prioritizing simplicity,
+                            clarity, and ease of use in every feature we build.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.5rem;">🔒 Privacy by Default
+                        </h3>
+                        <p class="feature-description">Privacy isn't a feature—it's a fundamental right. We build our
+                            tools to never collect, store, or transmit your personal data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.5rem;">🚀 Continuous
+                            Innovation</h3>
+                        <p class="feature-description">We stay at the forefront of AI research, continuously integrating
+                            the latest models and technologies to improve our tools.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.5rem;">🌟 Quality Over
+                            Quantity</h3>
+                        <p class="feature-description">We focus on delivering a few exceptional tools rather than many
+                            mediocre ones, ensuring each feature meets our high standards.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.5rem;">💚 Sustainable & Free
+                        </h3>
+                        <p class="feature-description">Our core tools remain free forever, supported by ethical
+                            advertising and optional premium features, never compromising on quality or access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Built by AI Enthusiasts</h2>
+                <p class="section-description">A passionate team dedicated to making AI accessible</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+                    We're a distributed team of developers, AI researchers, and designers who believe in the power of
+                    open technology. Our diverse backgrounds in machine learning, web development, and user experience
+                    design come together to create tools that truly serve our users.
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.6); font-size: 1rem; line-height: 1.8;">
+                    We're always looking for talented individuals who share our vision. If you're passionate about AI,
+                    privacy, and open technology, we'd love to hear from you at <a href="mailto:team@aitools.com"
+                        style="color: #00ff88;">team@aitools.com</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="features-section" style="background: rgba(0, 255, 136, 0.03);">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 class="section-title">Ready to Experience AI Tools?</h2>
+                <p class="section-description" style="margin-bottom: 2rem;">Join thousands of users who trust our
+                    platform for their daily AI needs</p>
+                <a href="index.html#tools" class="btn btn-primary"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    Try Our Tools Free
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="8" fill="url(#footer-logo-gradient)" />
+                            <path d="M16 8L22 12V20L16 24L10 20V12L16 8Z" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <defs>
+                                <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                                    <stop offset="0%" stop-color="#00ff88" />
+                                    <stop offset="100%" stop-color="#00cc66" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">AI Tools</span>
+                    </div>
+                    <p class="footer-tagline">Professional AI tools for everyone</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Tools</h4>
+                        <a href="index.html#enhancer">Image Enhancer</a>
+                        <a href="index.html#bg-remover">Background Remover</a>
+                        <a href="index.html#converter">File Converter</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="index.html#pricing">Pricing</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Tools Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>

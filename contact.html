@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AI Tools Platform</title>
+    <meta name="description"
+        content="Get in touch with AI Tools Platform. We're here to help with questions, support, partnerships, and feedback.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00ff88">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+                        <path d="M16 8L22 12V20L16 24L10 20V12L16 8Z" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#00ff88" />
+                                <stop offset="100%" stop-color="#00cc66" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">AI Tools</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#tools" class="nav-link">Tools</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="hero" style="padding: 120px 0 80px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Get in <span class="gradient-text">Touch</span>
+                </h1>
+                <p class="hero-description" style="max-width: 700px; margin: 0 auto;">
+                    Have a question, suggestion, or just want to say hello? We'd love to hear from you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3 class="feature-title">Email Us</h3>
+                    <p class="feature-description">For general inquiries</p>
+                    <a href="mailto:support@aitools.com"
+                        style="color: #00ff88; text-decoration: none; font-weight: 500;">support@aitools.com</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Business Inquiries</h3>
+                    <p class="feature-description">For partnerships & collaborations</p>
+                    <a href="mailto:business@aitools.com"
+                        style="color: #00ff88; text-decoration: none; font-weight: 500;">business@aitools.com</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3 class="feature-title">Technical Support</h3>
+                    <p class="feature-description">For technical assistance</p>
+                    <a href="mailto:tech@aitools.com"
+                        style="color: #00ff88; text-decoration: none; font-weight: 500;">tech@aitools.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="features-section" style="background: rgba(0, 255, 136, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Send Us a Message</h2>
+                <p class="section-description">We typically respond within 24-48 hours</p>
+            </div>
+            <div style="max-width: 700px; margin: 0 auto;">
+                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label for="firstName"
+                                style="color: rgba(255, 255, 255, 0.9); font-weight: 500; font-size: 0.875rem;">First
+                                Name *</label>
+                            <input type="text" id="firstName" name="firstName" required
+                                style="padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; color: white; font-family: 'Inter', sans-serif; font-size: 1rem;" />
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label for="lastName"
+                                style="color: rgba(255, 255, 255, 0.9); font-weight: 500; font-size: 0.875rem;">Last
+                                Name *</label>
+                            <input type="text" id="lastName" name="lastName" required
+                                style="padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; color: white; font-family: 'Inter', sans-serif; font-size: 1rem;" />
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="email"
+                            style="color: rgba(255, 255, 255, 0.9); font-weight: 500; font-size: 0.875rem;">Email
+                            Address *</label>
+                        <input type="email" id="email" name="email" required
+                            style="padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; color: white; font-family: 'Inter', sans-serif; font-size: 1rem;" />
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="subject"
+                            style="color: rgba(255, 255, 255, 0.9); font-weight: 500; font-size: 0.875rem;">Subject
+                            *</label>
+                        <select id="subject" name="subject" required
+                            style="padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; color: white; font-family: 'Inter', sans-serif; font-size: 1rem;">
+                            <option value="" style="background: #0a0f1e;">Select a subject</option>
+                            <option value="support" style="background: #0a0f1e;">Technical Support</option>
+                            <option value="feature" style="background: #0a0f1e;">Feature Request</option>
+                            <option value="bug" style="background: #0a0f1e;">Bug Report</option>
+                            <option value="business" style="background: #0a0f1e;">Business Inquiry</option>
+                            <option value="feedback" style="background: #0a0f1e;">General Feedback</option>
+                            <option value="other" style="background: #0a0f1e;">Other</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="message"
+                            style="color: rgba(255, 255, 255, 0.9); font-weight: 500; font-size: 0.875rem;">Message
+                            *</label>
+                        <textarea id="message" name="message" rows="6" required
+                            style="padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 8px; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: fit-content;">
+                        Send Message
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">Quick answers to common questions</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="feature-card">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.75rem;">How do I report a bug?
+                    </h3>
+                    <p class="feature-description">Please use the contact form above and select "Bug Report" as the
+                        subject. Include as much detail as possible about the issue, including your browser version and
+                        steps to reproduce.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.75rem;">Can I request a new
+                        feature?</h3>
+                    <p class="feature-description">Absolutely! We love hearing from our users. Submit your feature
+                        request using the form with the subject "Feature Request" and we'll review it for future
+                        updates.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.75rem;">Do you offer enterprise
+                        solutions?</h3>
+                    <p class="feature-description">Yes! For enterprise licensing, custom integrations, or white-label
+                        solutions, please contact us at business@aitools.com.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.75rem;">How long does it take to
+                        get a response?</h3>
+                    <p class="feature-description">We aim to respond to all inquiries within 24-48 hours during business
+                        days. Technical support requests are prioritized and typically answered within 24 hours.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title" style="color: #00ff88; margin-bottom: 0.75rem;">Are you hiring?</h3>
+                    <p class="feature-description">We're always looking for talented individuals! Check out our About
+                        page or send your resume to team@aitools.com.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="8" fill="url(#footer-logo-gradient)" />
+                            <path d="M16 8L22 12V20L16 24L10 20V12L16 8Z" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <defs>
+                                <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="32" y2="32">
+                                    <stop offset="0%" stop-color="#00ff88" />
+                                    <stop offset="100%" stop-color="#00cc66" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">AI Tools</span>
+                    </div>
+                    <p class="footer-tagline">Professional AI tools for everyone</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Tools</h4>
+                        <a href="index.html#enhancer">Image Enhancer</a>
+                        <a href="index.html#bg-remover">Background Remover</a>
+                        <a href="index.html#converter">File Converter</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="index.html#pricing">Pricing</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Tools Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+    <script>
+        // Contact form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Show success message (in production, this would send to a backend)
+            alert('Thank you for your message! We\'ll get back to you within 24-48 hours.');
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

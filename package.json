@@ -1,0 +1,39 @@
+{
+  "name": "ai-tools-platform",
+  "version": "2.0.0",
+  "description": "Ultra-light AI File & Image Tools Platform with TFLite processing",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "npm run optimize",
+    "optimize": "node scripts/optimize.js",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "image-enhancer",
+    "background-remover",
+    "file-converter",
+    "ai-tools",
+    "tflite",
+    "tensorflow",
+    "esrgan",
+    "modnet",
+    "whisper",
+    "ffmpeg"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.2.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.2.0",
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
