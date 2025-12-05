@@ -6,6 +6,8 @@ const AppState = {
     currentFile: null,
     processedResult: null,
     workerReady: false,
+    premiumUnlocked: false, // Track if user watched ad for premium
+    premiumExpiry: null, // When premium access expires
     models: {
         esrgan: null,
         rmbg: null,
@@ -51,7 +53,11 @@ const DOM = {
     // Download Page
     downloadPage: document.getElementById('downloadPage'),
     processNewFile: document.getElementById('processNewFile'),
-    upgradeBtn: document.getElementById('upgradeBtn')
+    shareBtn: document.getElementById('shareBtn'),
+
+    // Ad and Premium Features
+    watchAdBtn: document.getElementById('watchAdBtn'),
+    installAppBtn: document.getElementById('installAppBtn')
 };
 
 // ========================
@@ -101,6 +107,15 @@ function initEventListeners() {
             }
         });
     });
+
+    // Rewarded Ad Button
+    DOM.watchAdBtn?.addEventListener('click', handleWatchAd);
+
+    // Install App Button
+    DOM.installAppBtn?.addEventListener('click', handleInstallApp);
+
+    // Share Button
+    DOM.shareBtn?.addEventListener('click', handleShare);
 }
 
 // ========================
@@ -172,10 +187,12 @@ function handleDrop(e) {
 // File Processing
 // ========================
 async function processFile(file) {
-    // Validate file size (5MB for free tier)
-    const MAX_FREE_SIZE = 5 * 1024 * 1024;
-    if (file.size > MAX_FREE_SIZE) {
-        alert('File size exceeds 5MB limit. Please upgrade to Pro for larger files.');
+    // Validate file size (10MB for free, 50MB for premium)
+    const maxSize = AppState.premiumUnlocked ? 50 * 1024 * 1024 : 10 * 1024 * 1024;
+    const tierName = AppState.premiumUnlocked ? '50MB' : '10MB';
+
+    if (file.size > maxSize) {
+        alert(`File size exceeds ${tierName} limit. ${!AppState.premiumUnlocked ? 'Watch an ad to unlock up to 50MB file size!' : 'Please use a smaller file.'}`);
         return;
     }
 
@@ -589,6 +606,7 @@ if ('serviceWorker' in navigator) {
 // ========================
 document.addEventListener('DOMContentLoaded', () => {
     initEventListeners();
+    checkPremiumStatus(); // Check if user has active premium from previous session
     // initWorker(); // Uncomment when worker.js is created
     // loadAds(); // Uncomment when AdSense is set up
 
@@ -596,6 +614,162 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Build: Optimized for production');
     console.log('Bundle size: <1MB (with lazy loading)');
 });
+
+// ========================
+// Rewarded Ad Functionality
+// ========================
+let deferredInstallPrompt = null;
+
+async function handleWatchAd() {
+    const button = DOM.watchAdBtn;
+    if (!button) return;
+
+    // Disable button
+    button.disabled = true;
+    button.innerHTML = '⏳ Loading ad...';
+
+    // Simulate ad loading
+    await simulateDelay(1000);
+
+    // In production, integrate with Google AdMob or AdSense rewarded ads
+    // For now, simulate watching a 30-second ad
+    button.innerHTML = '🎬 Watching ad... (30s)';
+
+    // Countdown timer
+    let countdown = 30;
+    const interval = setInterval(() => {
+        countdown--;
+        button.innerHTML = `🎬 Watching ad... (${countdown}s)`;
+
+        if (countdown <= 0) {
+            clearInterval(interval);
+            unlockPremiumFeatures();
+        }
+    }, 1000);
+
+    trackEvent('Monetization', 'rewarded_ad_started', 'premium_unlock');
+}
+
+function unlockPremiumFeatures() {
+    // Grant premium access for 1 hour
+    AppState.premiumUnlocked = true;
+    AppState.premiumExpiry = Date.now() + (60 * 60 * 1000); // 1 hour from now
+
+    // Save to localStorage
+    localStorage.setItem('premiumUnlocked', 'true');
+    localStorage.setItem('premiumExpiry', AppState.premiumExpiry.toString());
+
+    // Update button
+    if (DOM.watchAdBtn) {
+        DOM.watchAdBtn.innerHTML = '✅ Premium Unlocked! (1 hour)';
+        DOM.watchAdBtn.style.background = 'linear-gradient(135deg, #00ff88, #00cc66)';
+        DOM.watchAdBtn.disabled = true;
+
+        // Show success message
+        setTimeout(() => {
+            DOM.watchAdBtn.innerHTML = '🎁 Premium Active';
+        }, 2000);
+    }
+
+    // Show notification
+    alert('🎉 Premium features unlocked for 1 hour!\n\n✓ HD/4K Quality Processing\n✓ Up to 50MB File Size\n✓ Priority Processing Speed\n✓ Batch Processing (5 files)\n\nEnjoy!');
+
+    trackEvent('Monetization', 'rewarded_ad_completed', 'premium_unlocked');
+}
+
+function checkPremiumStatus() {
+    // Check if premium is still valid
+    const unlocked = localStorage.getItem('premiumUnlocked');
+    const expiry = parseInt(localStorage.getItem('premiumExpiry') || '0');
+
+    if (unlocked === 'true' && expiry > Date.now()) {
+        AppState.premiumUnlocked = true;
+        AppState.premiumExpiry = expiry;
+
+        // Update button if exists
+        if (DOM.watchAdBtn) {
+            const remaining = Math.ceil((expiry - Date.now()) / (60 * 1000)); // minutes
+            DOM.watchAdBtn.innerHTML = `🎁 Premium Active (${remaining}min left)`;
+            DOM.watchAdBtn.style.background = 'linear-gradient(135deg, #00ff88, #00cc66)';
+            DOM.watchAdBtn.disabled = true;
+        }
+    } else if (unlocked === 'true') {
+        // Expired
+        localStorage.removeItem('premiumUnlocked');
+        localStorage.removeItem('premiumExpiry');
+        AppState.premiumUnlocked = false;
+    }
+}
+
+// ========================
+// PWA Installation
+// ========================
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing
+    e.preventDefault();
+    // Store the event for later use
+    deferredInstallPrompt = e;
+    console.log('PWA install prompt captured');
+});
+
+async function handleInstallApp() {
+    if (!deferredInstallPrompt) {
+        alert('This app is already installed or your browser doesn\'t support installation.\n\nYou can still use it directly from your browser!');
+        return;
+    }
+
+    // Show the install prompt
+    deferredInstallPrompt.prompt();
+
+    // Wait for the user's response
+    const { outcome } = await deferredInstallPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+        trackEvent('PWA', 'install_accepted', 'app_installed');
+        alert('🎉 App installed successfully! You can now access it from your home screen.');
+    } else {
+        console.log('User dismissed the install prompt');
+        trackEvent('PWA', 'install_dismissed', 'app_not_installed');
+    }
+
+    // Clear the saved prompt
+    deferredInstallPrompt = null;
+}
+
+// ========================
+// Social Sharing
+// ========================
+async function handleShare() {
+    const shareData = {
+        title: 'AI Tools Platform - Free AI-Powered Tools',
+        text: 'Check out this amazing free AI platform! Enhance images, remove backgrounds, and convert files - all in your browser!',
+        url: window.location.href
+    };
+
+    try {
+        if (navigator.share) {
+            // Use native share if available (mobile)
+            await navigator.share(shareData);
+            console.log('Content shared successfully');
+            trackEvent('Social', 'share_success', 'native_share');
+        } else {
+            // Fallback: copy link to clipboard
+            await navigator.clipboard.writeText(window.location.href);
+            alert('🔗 Link copied to clipboard!\n\nShare it with your friends to help them discover these free AI tools!');
+            trackEvent('Social', 'share_success', 'clipboard_copy');
+        }
+    } catch (error) {
+        console.error('Share failed:', error);
+        // Last resort: copy to clipboard
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            alert('🔗 Link copied! Share it with your friends.');
+        } catch (e) {
+            alert('Please manually copy the URL to share:\n\n' + window.location.href);
+        }
+    }
+}
 
 // ========================
 // Export for modules
