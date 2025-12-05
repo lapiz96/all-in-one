@@ -28,10 +28,11 @@
     "serve": "^14.2.1"
   },
   "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1",
     "@tensorflow/tfjs": "^4.2.0",
     "@tensorflow/tfjs-backend-webgl": "^4.2.0",
-    "@ffmpeg/ffmpeg": "^0.12.10",
-    "@ffmpeg/util": "^0.12.1"
+    "onnxruntime-web": "^1.23.2"
   },
   "engines": {
     "node": ">=18.0.0"
