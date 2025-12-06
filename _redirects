@@ -1,0 +1,4 @@
+# Netlify redirects file
+
+# SPA fallback - serve index.html for all routes that don't match files
+/*    /index.html   200

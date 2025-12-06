@@ -1,27 +1,27 @@
 # Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+package-lock.json
 
 # Build outputs
 dist/
 build/
-.vercel/
+.next/
+out/
 
 # Environment variables
 .env
 .env.local
 .env.production
+.env.development
 
-# Editor directories
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -29,20 +29,35 @@ desktop.ini
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Temporary files
-tmp/
-temp/
+# Cache
 .cache/
-
-# AI Models (large files - download separately)
-models/*.onnx
-models/*.bin
-models/*.wasm
-
-# User uploads (if any)
-uploads/
+.parcel-cache/
+.eslintcache
 
 # Testing
 coverage/
 .nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+.tmp/
+
+# Backups
+*.backup
+*-backup-*
+
+# Local deployment files
+.netlify/
+.vercel/
+.railway/
+
+# Documentation (keeping only main DEPLOY.md in root)
+# docs/ folder excluded from gitignore - you can choose to commit or not
+.vercel
+.env*.local
